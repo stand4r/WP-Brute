@@ -8,23 +8,11 @@
     tools:context=".LoggingFile">
 
     <Button
-        android:id="@+id/buttonStop"
-        android:layout_width="139dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="204dp"
-        android:layout_marginBottom="40dp"
-        android:background="@drawable/buttongradient"
-        android:onClick="stopOrResume"
-        android:text="Stop"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
         android:id="@+id/button4"
         android:layout_width="139dp"
         android:layout_height="48dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginStart="136dp"
+        android:layout_marginBottom="44dp"
         android:background="@drawable/buttongradient"
         android:onClick="back"
         android:text="Назад"
@@ -36,7 +24,7 @@
         android:layout_width="340dp"
         android:layout_height="354dp"
         android:layout_marginStart="24dp"
-        android:layout_marginBottom="108dp"
+        android:layout_marginBottom="152dp"
         android:background="@drawable/scrollgradient"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -52,12 +40,27 @@
     </ScrollView>
 
     <TextView
+        android:id="@+id/textView3"
+        android:layout_width="351dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="92dp"
+        android:fontFamily="sans-serif-light"
+        android:text="Checked: 0"
+        android:textAlignment="textStart"
+        android:textColor="@color/white"
+        android:textSize="19sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.733"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
         android:id="@+id/textView9"
         android:layout_width="337dp"
         android:layout_height="51dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="56dp"
-        android:fontFamily="serif"
+        android:fontFamily="casual"
         android:text="Results"
         android:textAlignment="center"
         android:textColor="@color/white"
@@ -69,15 +72,14 @@
     <TextView
         android:id="@+id/textView13"
         android:layout_width="347dp"
-        android:layout_height="96dp"
+        android:layout_height="53dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="152dp"
+        android:layout_marginTop="144dp"
         android:fontFamily="sans-serif-light"
-        android:text="Url: adsadas\nLogin: dsfds\nChecked passwords: 2300\nAll passwords: "
-        android:textAlignment="center"
+        android:text="Url: adsadas\nLogin: dsfds "
+        android:textAlignment="textStart"
         android:textColor="@color/white"
         android:textSize="20sp"
-        android:textStyle="bold|italic"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

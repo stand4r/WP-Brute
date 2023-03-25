@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity
 import org.jsoup.Connection
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
+import org.w3c.dom.Text
 import java.io.File
 import java.io.FileNotFoundException
 import kotlin.concurrent.thread
@@ -84,8 +85,10 @@ class LoggingFile : AppCompatActivity() {
         tvFail.visibility = VISIBLE
         scroll.visibility = VISIBLE
         thread {
+            var count = 0
             for (password in passwords.split("\n")) {
                 if (!stopTh) {
+                    count = count+1
                     if (password != "") {
                         val res: Connection.Response = Jsoup
                             .connect(url)
@@ -98,12 +101,12 @@ class LoggingFile : AppCompatActivity() {
                         if (("Unknown" in doc.text()) or ("incorrect" in doc.text()) or ("ERROR" in doc.text()) or ("error" in doc.text())) {
                             runOnUiThread {
                                 Log.i("Stop", "stop = $stopTh")
-                                addInfo("   Passw: $password", true)
+                                addInfo(count, "   Passw: $password", true)
                             }
                         } else {
                             runOnUiThread {
                                 Log.i("Stop", "stop = $stopTh")
-                                addInfo("   Passw: $password", false)
+                                addInfo(count, "   Passw: $password", false)
                             }
                         }
                     }
@@ -122,15 +125,12 @@ class LoggingFile : AppCompatActivity() {
         finish()
     }
 
-    fun stopOrResume(view: View) {
-        StopThread()
-    }
-    fun StopThread() {
-        val stopTh = true
-    }
-
-    fun addInfo(str: String, validPassword: Boolean) {
+    fun addInfo(count: Int, str: String, validPassword: Boolean) {
         val scroll = findViewById<LinearLayout>(R.id.lay1)
+        val tv = findViewById<TextView>(R.id.textView3)
+        tv.text = "Checked: $count"
+
+
         var txt = TextView(this)
         txt.layoutParams = ViewGroup.LayoutParams(
             ViewGroup.LayoutParams.MATCH_PARENT,
